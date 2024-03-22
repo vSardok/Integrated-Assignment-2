@@ -21,7 +21,7 @@ class ProdList {
     static getProductById(uuid) {
         return products.filter(o => {
             if (o.uuid == uuid) return o;
-        })
+        })[0];
     } 
 
     // Update

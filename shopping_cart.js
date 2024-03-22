@@ -65,7 +65,7 @@ class ShoppingCart {
     calculateTotal() {
         let total=0;
         for (let i=0; i<this._proxies.length; i++){
-            total += this.products[i][0]._pricePerUnit * this._proxies[i]._quantity;
+            total += this.products[i]._pricePerUnit * this._proxies[i]._quantity;
         }
         return total;
     }
@@ -92,14 +92,14 @@ class ShoppingCart {
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">Price:</span>
-                                            <input type="number" class="form-control" readonly value="${this.products[i][0]._pricePerUnit}"/> 
+                                            <input type="number" class="form-control" readonly value="${this.products[i]._pricePerUnit}"/> 
                                             <span class="input-group-text">MXN</span>
                                         </div>
                                     </p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                <img class="rounded-circle d-block mx-auto img-fluid img-thumbnail" src="${this.products[i][0]._imageUrl}" alt=""/>
+                                <img class="rounded-circle d-block mx-auto img-fluid img-thumbnail" src="${this.products[i]._imageUrl}" alt=""/>
                             </div>
                         </div>
                     </div>`;
@@ -112,7 +112,7 @@ class ShoppingCart {
             <div class="flex-grow-1 ms-3">
                 <h5 class="mt-3">Total Purchase</h5>`; 
     for (let i=0; i<this._proxies.length; i++){
-        html+=`<p><b>${this.products[i][0]._name}:</b> ${this._proxies[i]._quantity} x ${this.products[i][0]._pricePerUnit} MXN</p>                `
+        html+=`<p><b>${this.products[i]._name}:</b> ${this._proxies[i]._quantity} x ${this.products[i]._pricePerUnit} MXN</p>                `
     }         
     html += `<h5>Total: ${this.calculateTotal()} MXN</h5><button type="button" class="btn btn-primary d-block mx-auto m-3 col-6" data-bs-toggle="modal" data-bs-target="#PaymentModal">  Pay </button>
                 <button type="button" class="btn btn-primary btn-danger d-block mx-auto m-3 col-6"> Cancel </button>
